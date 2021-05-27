@@ -1,0 +1,559 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  color: #f8f8f2;
+  scroll-behavior: smooth;
+}
+
+/* App */
+.App {
+  display: flex;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  flex-direction: column;
+  position: relative;
+}
+
+.highlight {
+  color: #bd93f9;
+}
+
+/* Navbar */
+.Navbar {
+  width: 100%;
+  height: 10%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  background-color: rgba(40, 42, 54, 0);
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.Navbar.scrolled-navbar {
+  background-color: rgba(40, 42, 54, 0.5);
+}
+
+.Navbar .title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #bd93f9;
+  cursor: pointer;
+}
+
+.Navbar .title:hover {
+  animation-name: bounce;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.Navbar .NavbarButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Navbar .NavbarButtons .NavbarButton {
+  cursor: pointer;
+  padding: 0.85rem;
+  margin: 5px;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.Navbar .NavbarButtons .NavbarButton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 5px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #282a36;
+  transition: width 0.5s ease;
+  -webkit-transition: width 0.5s ease;
+}
+
+.Navbar .NavbarButtons .NavbarButton:hover:after {
+  width: 100%;
+  left: 0;
+  background: #bd93f9;
+}
+
+.Navbar .NavbarButtons .NavbarButton svg {
+  margin-right: 5px;
+}
+
+.Navbar .NavbarButtons .NavbarButton a {
+  text-decoration: none;
+}
+
+/* Home */
+.Home {
+  text-align: center;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.Home .header-text {
+  padding: 0.5rem;
+}
+
+.Home .contact-button {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.Home .contact-button button {
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  color: #282a36;
+  background-color: #ff79c6;
+  margin: 0 auto;
+  display: block;
+}
+
+.Home .contact-button button:hover {
+  filter: brightness(80%);
+  transition: all 300ms ease;
+}
+
+/* Home text-animation */
+.Home .text-animation {
+  white-space: nowrap;
+  overflow: hidden;
+
+  font-size: 2em;
+  font-family: "Raleway", serif;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+}
+
+.Home .text-animation .pointer {
+  background: #bd93f9;
+  display: inline;
+  padding: 0 1px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* About */
+.About {
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #131421;
+}
+
+.About .container {
+  display: flex;
+  width: 100%;
+  padding: 3rem;
+  flex-direction: column;
+}
+
+.About .container .about-intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.About .text .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.About .text .description {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.About .icon img {
+  width: auto;
+  height: 450px;
+}
+
+.About .icon-list {
+  padding: 1rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.About .icon-list .title {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 1rem;
+  font-weight: bold;
+}
+.About .icon-list .icons {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.About .icon-list .icons svg {
+  width: 8vw;
+  height: 8vh;
+  margin: 0.25rem 1rem 0.25rem 0.25rem;
+  border: 1px solid #bd93f9;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 0 0 5px #bd93f9;
+  transition: all 300ms ease-in-out;
+}
+
+.About .icon-list .icons svg:hover {
+  border: 2px solid #bd93f9;
+  animation-name: pulse;
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Tooltip */
+.About .icon-list .icons .Tooltip {
+  position: relative;
+}
+
+.About .icon-list .icons .Tooltip .tooltip-text {
+  width: 8.5vw;
+  background-color: #bd93f9;
+  color: #282a36;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.About .icon-list .icons .Tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #bd93f9 transparent transparent transparent;
+}
+
+/* Projects */
+.Projects {
+  font-family: Roboto;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  background-color: #232844;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Projects .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
+  padding-top: 2rem;
+}
+
+.Projects .container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Projects .container .Project {
+  text-align: center;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.Projects .container .Project .container {
+  margin: 10px 1%;
+  width: 25rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.Projects .container .Project .container:hover {
+  cursor: pointer;
+}
+
+.Projects .container .Project .container * {
+  transition: all 0.35s ease-in-out;
+}
+
+.Projects .container .Project .container img {
+  max-width: 100%;
+  vertical-align: top;
+  height: 310px;
+  object-fit: cover;
+}
+
+.Projects .container .Project .container:hover img {
+  opacity: 0;
+}
+
+.Projects .container .Project .container .text {
+  width: 80%;
+  height: 90%;
+  position: absolute;
+  top: -100px;
+  left: 10%;
+}
+
+.Projects .container .Project .container .text p {
+  color: #bd93f9;
+}
+
+.Projects .container .Project .container .text h3 {
+  font-weight: bold;
+}
+
+.Projects .container .Project .container:hover .text {
+  top: 20%;
+}
+
+.Projects .container .Project .container:hover .button {
+  bottom: 20%;
+}
+
+.Projects .container .Project .container .button {
+  position: absolute;
+  bottom: -100px;
+  left: 25%;
+  width: 50%;
+  border: 3px solid #bd93f9;
+  padding: 15px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.Projects .container .Project .container .button:hover {
+  background-color: #bd93f9;
+  color: #282a36;
+}
+
+/* Projects Modal */
+.Modal {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Modal .modalContainer {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  animation: scale 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.ProjectModal {
+  background-color: #232844;
+  box-sizing: border-box;
+  margin: 5% auto;
+  width: 700px;
+  max-height: 714px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.ProjectModal img {
+  width: 100%;
+  height: 450px;
+  border-bottom: 1px solid #363638;
+}
+
+.ProjectModal .details {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  text-align: left;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.ProjectModal .details .info {
+  padding: 1rem;
+}
+
+.ProjectModal .details * {
+  transition: all 0.3s;
+}
+
+.ProjectModal .title {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.253);
+  font-weight: bold;
+}
+
+.ProjectModal .details .button {
+  width: 30%;
+  background-color: #bd93f9;
+  color: #282a36;
+  text-align: center;
+  padding: 1rem;
+  float: left;
+}
+
+.ProjectModal .details a {
+  text-decoration: none;
+}
+
+.ProjectModal .details svg {
+  font-size: 3rem;
+  fill: #bd93f9;
+  width: 60px;
+  height: 60px;
+  float: right;
+}
+
+.ProjectModal .details .button:hover,
+.ProjectModal .details svg:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.ProjectModal .close-button {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+}
+
+.ProjectModal .close-button:hover,
+.ProjectModal .close-button:focus {
+  color: #363638;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Resume */
+.Resume {
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  background-color: #131421;
+}
+
+/* Footer */
+.Footer {
+  background: linear-gradient(
+    163deg,
+    rgba(35, 40, 68, 1) 30%,
+    rgba(68, 63, 107, 1) 66%,
+    rgba(189, 147, 249, 1) 100%
+  );
+  width: 100%;
+  height: 20%;
+  min-height: 100px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
