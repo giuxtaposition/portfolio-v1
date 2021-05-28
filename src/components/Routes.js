@@ -22,8 +22,6 @@ function Routes() {
     const location = useLocation()
 
     useEffect(() => {
-        console.log("*", location.pathname)
-
         if (location.pathname === "/") {
             document.getElementsByClassName("Home")[0].scrollIntoView()
         } else if (location.pathname === "/about") {

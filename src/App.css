@@ -366,9 +366,9 @@
 
 .Projects .filter-container .filter:hover,
 .Projects .filter-container .active {
-  box-shadow: 0 0.5em 0.5em -0.4em #e5ff60;
+  box-shadow: 0 0.5em 0.5em -0.4em #bd93f9;
   transform: translateY(-0.25em);
-  border-color: #e5ff60;
+  border-color: #bd93f9;
   color: #fff;
 }
 

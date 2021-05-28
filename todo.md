@@ -5,6 +5,7 @@
 - [ ] Page Loading Animation
 - [ ] Mobile Responsive
 - [ ] Italian Language
+- [ ] If manually scrolled to section, change path
 
 ## Navbar
 
@@ -33,16 +34,16 @@
 - [x] Tools Section
 - [x] Tooltip over Skills And Tools Section
 - [x] Hover Animation on Icons
-- [ ] Prettify Skills Section Layout
-
+- [x] Prettify Skills Section Layout
+  
 ## Projects Section
 
 - [x] Projects Cards
 - [x] Hover Animation
 - [x] Projects  Modals
 - [x] One Dynamic Modal for all projects
-- [ ] Add Projects Tags
-- [ ] Filter Projects by Tags
+- [x] Add Projects Tags
+- [x] Filter Projects by Tags
 
 ## Resume  Section
 
