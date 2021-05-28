@@ -2,12 +2,12 @@ import React from 'react'
 import { DiGithubBadge } from 'react-icons/di'
 
 function ProjectModal({
-    title, text, img, imgAlt, projectLink, projectTags, projectGithub
+    title, text, img, imgAlt, projectLink, projectTags, projectGithub, setShowModal
 }) {
 
     return (
         <div className="ProjectModal">
-            <span className="close-button">&times;</span>
+            <span className="close-button" onClick={() => setShowModal(false)}>&times;</span>
             <img src={img} alt={imgAlt}></img>
             <div className="details">
                 <div className="title">{title}</div>

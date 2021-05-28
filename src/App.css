@@ -326,13 +326,14 @@
 .Projects {
   font-family: Roboto;
   text-align: center;
-  height: 100vh;
+  height: auto;
   width: 100%;
   padding: 2rem;
   background-color: #232844;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
 }
 
 .Projects .title {
@@ -340,6 +341,35 @@
   font-weight: bold;
   font-size: 2rem;
   padding-top: 2rem;
+}
+
+.Projects .filter-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.Projects .filter-container .filter {
+  border: none;
+  padding: 0.5rem;
+  margin-right: 1.5rem;
+  font-weight: bold;
+  transition: 0.25s;
+  overflow: visible;
+
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.Projects .filter-container .filter:hover,
+.Projects .filter-container .active {
+  box-shadow: 0 0.5em 0.5em -0.4em #e5ff60;
+  transform: translateY(-0.25em);
+  border-color: #e5ff60;
+  color: #fff;
 }
 
 .Projects .container {
@@ -379,6 +409,10 @@
   vertical-align: top;
   height: 310px;
   object-fit: cover;
+}
+
+.Projects .container .Project .container:hover {
+  background-color: #131421;
 }
 
 .Projects .container .Project .container:hover img {

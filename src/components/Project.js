@@ -16,7 +16,6 @@ function Project({
             onClick={() => {
                 setShowModal(true)
                 setShowProject(project)
-                console.log("clicked")
             }}
         >
             <div className="container" >

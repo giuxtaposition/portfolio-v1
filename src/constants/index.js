@@ -1,5 +1,3 @@
-export const navbarItems = ["home", "about", "projects", "resume"]
-
 export const navbarButtons = [
     {
         name: "home",
@@ -18,3 +16,5 @@ export const navbarButtons = [
         link: "/resume"
     }
 ]
+
+export const projectsFilters = ["all", "javascript", "react", "bootstrap", "material-ui", "firebase"]
