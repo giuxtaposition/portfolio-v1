@@ -6,7 +6,7 @@ import Projects from './Projects';
 import Resume from './Resume';
 import Footer from './Footer'
 
-function AppContainer() {
+const AppContainer: React.FC = () => {
     return (
         <>
             <Home />
@@ -18,7 +18,7 @@ function AppContainer() {
     )
 }
 
-function Routes() {
+export const Routes: React.FC = () => {
     const location = useLocation()
 
     useEffect(() => {
@@ -43,5 +43,4 @@ function Routes() {
         </>
     );
 }
-
-export default Routes
+export default Routes;

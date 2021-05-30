@@ -6,6 +6,7 @@
 - [ ] Mobile Responsive
 - [ ] Italian Language
 - [ ] If manually scrolled to section, change path
+- [x] Convert to Typescript
 
 ## Navbar
 
@@ -44,6 +45,8 @@
 - [x] One Dynamic Modal for all projects
 - [x] Add Projects Tags
 - [x] Filter Projects by Tags
+- [ ] Show Project Tags in Modal and in Project Card
+- [+] Add Animation to projects filtered
 
 ## Resume  Section
 
