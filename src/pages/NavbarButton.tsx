@@ -1,5 +1,5 @@
 import React from "react";
-import { FiFileText, FiHome, FiPackage, FiUser } from "react-icons/fi";
+import { FiMail, FiHome, FiPackage, FiUser } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 const NavbarButton: React.FC<Props> = ({ name, linkPath }) => {
   return (
     <>
-      <li className="NavbarButton">
+      <li className="NavbarButton" id={`${name}-navbar`}>
         <Link to={linkPath}>
           {name === "home" ? (
             <FiHome />
@@ -18,8 +18,8 @@ const NavbarButton: React.FC<Props> = ({ name, linkPath }) => {
             <FiUser />
           ) : name === "projects" ? (
             <FiPackage />
-          ) : name === "resume" ? (
-            <FiFileText />
+          ) : name === "contact" ? (
+            <FiMail />
           ) : (
             ""
           )}

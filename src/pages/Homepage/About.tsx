@@ -1,5 +1,5 @@
 import React from "react";
-import icon from "../images/intro.png";
+import icon from "../../images/intro.png";
 import {
   DiBootstrap,
   DiFirebase,
@@ -14,7 +14,7 @@ import {
 } from "react-icons/di";
 import { SiMaterialUi } from "react-icons/si";
 import { GrArchlinux } from "react-icons/gr";
-import Tooltip from "./Tooltip";
+import Tooltip from "../../components/Tooltip";
 
 const About: React.FC = () => {
   return (

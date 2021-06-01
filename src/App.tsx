@@ -1,11 +1,9 @@
-import './App.css';
+import "./App.css";
 import React from "react";
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
-import Routes from './components/Routes'
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./routes/Routes";
 
-const App:  React.FC = () => {
+const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
@@ -13,8 +11,6 @@ const App:  React.FC = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
-
-

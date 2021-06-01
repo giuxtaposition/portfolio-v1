@@ -7,6 +7,7 @@
 - [ ] Italian Language
 - [ ] If manually scrolled to section, change path
 - [x] Convert to Typescript
+- [ ] Convert to SCSS
 
 ## Navbar
 
@@ -48,13 +49,13 @@
 - [ ] Show Project Tags in Modal and in Project Card
 - [+] Add Animation to projects filtered
 
-## Resume  Section
+## Contact Section
 
-- [ ] Download CV Button
-- [ ] Working Download CV Button
-- [ ] Education
-- [ ] Experience
-- [ ] Languages
+- [x] Contact Form
+- [x] Form Validation
+- [ ] Backend
+- [ ] Success Modal
+- [ ] Error Modal
 
 ## Footer
 

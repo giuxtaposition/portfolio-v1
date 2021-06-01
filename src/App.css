@@ -105,7 +105,8 @@
   -webkit-transition: width 0.5s ease;
 }
 
-.Navbar .NavbarButtons .NavbarButton:hover:after {
+.Navbar .NavbarButtons .NavbarButton:hover:after,
+.Navbar .NavbarButtons .NavbarButton.active:after {
   width: 100%;
   left: 0;
   background: #bd93f9;
@@ -570,13 +571,93 @@
   cursor: pointer;
 }
 
-/* Resume */
-.Resume {
+/* Contact*/
+.Contact {
   text-align: center;
   height: 100vh;
   width: 100%;
   padding: 2rem;
-  background-color: #131421;
+  background-color: #2b2b2b;
+  color: #f8f8f2;
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Contact .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
+  padding-top: 2rem;
+  color: #50fa7b;
+  margin-bottom: 1.5rem;
+}
+
+.Contact form {
+  display: flex;
+  justify-content: center;
+}
+
+.Contact form .container {
+  background-color: #101010;
+  padding: 2rem;
+  border-radius: 4px;
+  width: 35rem;
+}
+
+.Contact form input,
+.Contact form textarea {
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #2b2b2b;
+}
+
+.Contact form input:focus,
+.Contact form textarea:focus {
+  outline: none;
+  border-bottom: 1px solid #50fa7b;
+}
+
+.Contact form .input-contact {
+  margin: 1.5rem;
+}
+
+.Contact form .input-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+.Contact form p {
+  margin-left: 10px;
+}
+
+.Contact form .contact-error {
+  color: #ff5555;
+}
+
+.Contact button {
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  color: #282a36;
+  background-color: #50fa7b;
+  margin: 2rem auto 0 auto;
+  display: block;
+}
+
+.Contact button:hover {
+  filter: brightness(80%);
+  transition: all 300ms ease;
 }
 
 /* Footer */

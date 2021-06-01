@@ -1,7 +1,7 @@
 import React from "react";
-import Typewriter from "./Typewriter";
+import Typewriter from "../../components/Typewriter";
 import { HiSparkles } from "react-icons/hi";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 
 const Home: React.FC = () => {
   const textAnimation: string = "Full Stack Web Developer";

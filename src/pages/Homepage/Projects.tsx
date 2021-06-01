@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Project from "./Project";
-import Modal from "./Modal";
+import Modal from "../../components/Modal";
 import ProjectModal from "./ProjectModal";
-import { projectsFilters } from "../constants";
-import sketchpad from "../images/projects/sketchpad.png";
-import example1 from "../images/projects/example1.jpg";
-import example2 from "../images/projects/example2.jpg";
-import example3 from "../images/projects/example3.jpg";
+import { projectsFilters } from "../../constants";
+import sketchpad from "../../images/projects/sketchpad.png";
+import example1 from "../../images/projects/example1.jpg";
+import example2 from "../../images/projects/example2.jpg";
+import example3 from "../../images/projects/example3.jpg";
 
 interface project {
   title: string;
