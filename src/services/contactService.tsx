@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "https://yg-portfolio-server.herokuapp.com/portfolio/contact";
+const baseUrl = "https://www.giuxtaposition.tech/portfolio/contact";
 
 const sendMail = (newObject: any) => {
   const request = axios.post(baseUrl, newObject);

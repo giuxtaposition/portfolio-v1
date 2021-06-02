@@ -224,7 +224,6 @@ const Projects: React.FC = () => {
           projectGithub={(showProject as project).projectGithub}
           setShowModal={setShowModal}
         />
-        s
       </Modal>
     </section>
   );

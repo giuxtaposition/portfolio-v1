@@ -28,7 +28,7 @@
 }
 
 .App section {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 .highlight {
@@ -673,6 +673,53 @@
 .Contact button:hover {
   filter: brightness(80%);
   transition: all 300ms ease;
+}
+
+/* ContactModal */
+.ContactModal {
+  background-color: #2b2b2b;
+  box-sizing: border-box;
+  margin: 5% auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  width: 700px;
+  max-height: 714px;
+}
+
+.ContactModal .contact-icon svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.ContactModal#success-modal svg {
+  fill: #50fa7b;
+}
+
+.ContactModal#error-modal svg {
+  fill: #ff5555;
+}
+
+.ContactModal h1 {
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.ContactModal p {
+  white-space: pre-line;
+}
+
+.ContactModal button {
+  padding: 0.5rem;
+  width: 5rem;
+  border-radius: 0.25rem;
+  margin: 2rem auto 0 auto;
+}
+
+.ContactModal#error-modal button {
+  background-color: #ff5555;
 }
 
 /* Footer */

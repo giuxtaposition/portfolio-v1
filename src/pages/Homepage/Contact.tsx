@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { BiBookmark, BiMailSend, BiMessage, BiUser } from "react-icons/bi";
+import Modal from "../../components/Modal";
+import ContactModal from "./ContactModal";
 import contactService from "../../services/contactService";
+
+import { BsCheckCircle, BsExclamationCircle } from "react-icons/bs";
 
 const Contact: React.FC = () => {
   //STATES
@@ -8,6 +12,9 @@ const Contact: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+
+  const [showSuccessModal, setShowSuccessModal] = useState<boolean>(false);
+  const [showErrorModal, setShowErrorModal] = useState<boolean>(false);
 
   //ERRORS
   const [errors, setErrors] = useState({
@@ -83,20 +90,13 @@ const Contact: React.FC = () => {
         message: message,
       };
 
-      console.log(emailObject);
       contactService(emailObject).then((returnedResponse) => {
         if (returnedResponse === "success") {
-          console.log("Email Sent");
-          setName("");
-          setEmail("");
-          setMessage("");
-          setSubject("");
+          setShowSuccessModal(true);
         } else {
-          console.log("Error, email not Sent");
+          setShowErrorModal(true);
         }
       });
-    } else {
-      console.log("Make sure  form completed correctly");
     }
   };
 
@@ -175,6 +175,25 @@ const Contact: React.FC = () => {
           <button onClick={(e) => handleSubmit(e)}> Submit </button>
         </div>
       </form>
+      <Modal showModal={showSuccessModal} setShowModal={setShowSuccessModal}>
+        <ContactModal
+          id="success-modal"
+          title="Success!"
+          text={`Your email was sent successfully. \n I'll try to get back to you as  soon as possible!`}
+          icon={<BsCheckCircle />}
+          setShowModal={setShowSuccessModal}
+        />
+      </Modal>
+
+      <Modal showModal={showErrorModal} setShowModal={setShowErrorModal}>
+        <ContactModal
+          id="error-modal"
+          title="Error!"
+          text={`Your email was not sent. \n Please try again`}
+          icon={<BsExclamationCircle />}
+          setShowModal={setShowErrorModal}
+        />
+      </Modal>
     </section>
   );
 };
