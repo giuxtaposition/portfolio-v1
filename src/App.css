@@ -8,7 +8,6 @@
   box-sizing: border-box;
   font-family: "Noto Sans", sans-serif;
   color: #f8f8f2;
-  scroll-behavior: smooth;
 }
 
 /* App */
@@ -18,7 +17,18 @@
   height: auto;
   overflow: hidden;
   flex-direction: column;
-  position: relative;
+}
+
+.scrollsnap-container {
+  overflow-y: scroll;
+  scroll-snap-type: mandatory; /* for older browsers */
+  scroll-snap-points-y: repeat(100vh); /* for older browsers */
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+}
+
+.App section {
+  scroll-snap-align: start;
 }
 
 .highlight {
@@ -161,6 +171,11 @@
 .Home .contact-button button:hover {
   filter: brightness(80%);
   transition: all 300ms ease;
+}
+
+.Home .contact-button svg {
+  fill: #282a36;
+  margin-left: 0.25em;
 }
 
 /* Home text-animation */

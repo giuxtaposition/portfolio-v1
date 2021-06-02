@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Typewriter from "../../components/Typewriter";
 import { HiSparkles } from "react-icons/hi";
+import { FaArrowDown } from "react-icons/fa";
 import Navbar from "../Navbar";
 
 const Home: React.FC = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const textAnimation: string = "Full Stack Web Developer";
+
+  const handleClick = () => {
+    document.getElementsByClassName("Contact")[0].scrollIntoView();
+  };
+
+  const toggleHover = () => {
+    setIsHovered(!isHovered);
+  };
 
   return (
     <section className="Home">
@@ -23,7 +34,14 @@ const Home: React.FC = () => {
         <Typewriter words={textAnimation} />
       </div>
       <div className="contact-button header-text">
-        <button>Contact Me</button>
+        <button
+          onClick={handleClick}
+          onMouseEnter={toggleHover}
+          onMouseLeave={toggleHover}
+        >
+          Contact Me
+          {isHovered && <FaArrowDown />}
+        </button>
       </div>
     </section>
   );

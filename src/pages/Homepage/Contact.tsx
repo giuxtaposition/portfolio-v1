@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { BiBookmark, BiMailSend, BiMessage, BiUser } from "react-icons/bi";
-
-type formChangeEvent = React.ChangeEvent<
-  HTMLInputElement | HTMLTextAreaElement
->;
+import contactService from "../../services/contactService";
 
 const Contact: React.FC = () => {
+  //STATES
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [subject, setSubject] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
+  //ERRORS
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -18,37 +17,40 @@ const Contact: React.FC = () => {
     message: "",
   });
 
-  const handleChange = (event: formChangeEvent) => {
-    event.preventDefault();
-    const { id, value } = event.target;
+  interface Errors {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+  }
 
+  const countErrors = (errors: Errors) => {
+    let count = 0;
+    Object.values(errors).forEach(
+      (value) => value.length > 0 && (count = count + 1)
+    );
+    return count;
+  };
+
+  const handleFormValidation = () => {
     const validEmailRegex = RegExp(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 
-    switch (id) {
-      case "name":
-        errors.name =
-          value.length < 3 ? "Name must be at least 3 characters long!" : "";
-        break;
-      case "email":
-        errors.email = validEmailRegex.test(value)
-          ? ""
-          : "Please provide a valid email!";
-        break;
-      case "subject":
-        errors.subject =
-          value.length < 3 ? "Subject must be at least 3 characters long!" : "";
-        break;
-      case "message":
-        errors.message =
-          value.length < 3
-            ? "Message must be at least 3 characters long, but please write a little more"
-            : "";
-        break;
-      default:
-        break;
-    }
+    errors.name =
+      name.length < 3 ? "Name must be at least 3 characters long!" : "";
+
+    errors.email = validEmailRegex.test(email)
+      ? ""
+      : "Please provide a valid email!";
+
+    errors.subject =
+      subject.length < 3 ? "Subject must be at least 3 characters long!" : "";
+
+    errors.message =
+      message.length < 3
+        ? "Message must be at least 3 characters long, but please write a little more"
+        : "";
 
     setErrors({
       name: errors.name,
@@ -56,6 +58,7 @@ const Contact: React.FC = () => {
       subject: errors.subject,
       message: errors.message,
     });
+
     console.log(
       " name " +
         errors.name +
@@ -68,9 +71,34 @@ const Contact: React.FC = () => {
     );
   };
 
-  const handleSubmit = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {};
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    handleFormValidation();
+
+    if (countErrors(errors) === 0) {
+      const emailObject = {
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+      };
+
+      console.log(emailObject);
+      contactService(emailObject).then((returnedResponse) => {
+        if (returnedResponse === "success") {
+          console.log("Email Sent");
+          setName("");
+          setEmail("");
+          setMessage("");
+          setSubject("");
+        } else {
+          console.log("Error, email not Sent");
+        }
+      });
+    } else {
+      console.log("Make sure  form completed correctly");
+    }
+  };
 
   return (
     <section className="Contact">
@@ -84,8 +112,8 @@ const Contact: React.FC = () => {
             </div>
             <input
               type="text"
-              id="name"
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Name"
               autoFocus
             />
@@ -101,8 +129,8 @@ const Contact: React.FC = () => {
             </div>
             <input
               type="email"
-              id="email"
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
               autoFocus
             />
@@ -118,8 +146,8 @@ const Contact: React.FC = () => {
             </div>
             <input
               type="text"
-              id="subject"
-              onChange={handleChange}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               placeholder="Subject"
               autoFocus
             />
@@ -135,8 +163,8 @@ const Contact: React.FC = () => {
             </div>
             <textarea
               name="message"
-              id="message"
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="Things you want to say..."
             ></textarea>
             {errors.message.length > 0 && (

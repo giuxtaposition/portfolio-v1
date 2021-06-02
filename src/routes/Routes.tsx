@@ -9,16 +9,18 @@ import Footer from "../pages/Footer";
 const AppContainer: React.FC = () => {
   return (
     <>
-      <Home />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
+      <div className="scrollsnap-container">
+        <Home />
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
     </>
   );
 };
 
-export const Routes: React.FC = () => {
+const Routes: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
