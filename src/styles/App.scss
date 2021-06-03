@@ -1,0 +1,76 @@
+@use "colors";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import "~animate.css/animate.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+  color: colors.$white;
+}
+
+/* App */
+.App {
+  display: flex;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.scrollsnap-container {
+  overflow-y: scroll;
+  scroll-snap-type: mandatory; /* for older browsers */
+  scroll-snap-points-y: repeat(100vh); /* for older browsers */
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+}
+
+.App section {
+  scroll-snap-align: center;
+}
+
+.highlight {
+  color: colors.$purple;
+}
+
+/* Modal */
+.Modal {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Modal .modalContainer {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  animation: scale 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Footer */
+.Footer {
+  background-color: #1b242f;
+  width: 100%;
+  height: 20%;
+  min-height: 100px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}

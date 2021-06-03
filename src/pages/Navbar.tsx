@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavbarButtons from "./NavbarButtons";
+import "../styles/Navbar.scss";
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(0);

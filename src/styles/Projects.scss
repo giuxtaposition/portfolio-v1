@@ -1,0 +1,198 @@
+@use "colors";
+@use "section";
+
+/* Projects */
+.Projects {
+  @include section.section;
+  font-family: Roboto;
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+  background-color: colors.$section-color2;
+
+  .title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+
+    .filter {
+      border: none;
+      padding: 0.5rem;
+      margin-right: 1.5rem;
+      font-weight: bold;
+      transition: 0.25s;
+      overflow: visible;
+
+      background: none;
+      border: 2px solid;
+      font: inherit;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .filter:hover,
+    .active {
+      box-shadow: 0 0.5em 0.5em -0.4em colors.$purple;
+      transform: translateY(-0.25em);
+      border-color: colors.$purple;
+      color: #fff;
+    }
+  }
+
+  .container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .Project {
+      text-align: center;
+      position: relative;
+      float: left;
+      overflow: hidden;
+      padding: 1rem;
+      .container {
+        margin: 10px 1%;
+        width: 25rem;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        box-sizing: border-box;
+        img {
+          max-width: 100%;
+          vertical-align: top;
+          height: 310px;
+          object-fit: cover;
+          transition: all 0.2s ease-in-out;
+        }
+        .text {
+          width: 80%;
+          height: 90%;
+          position: absolute;
+          top: -100px;
+          left: 10%;
+
+          p {
+            color: colors.$purple;
+          }
+          h3 {
+            font-weight: bold;
+          }
+        }
+        .button {
+          position: absolute;
+          bottom: -100px;
+          left: 25%;
+          width: 50%;
+          border: 3px solid colors.$purple;
+          padding: 15px;
+          box-sizing: border-box;
+          transition: all 0.3s ease-in-out;
+        }
+        .button:hover {
+          background-color: colors.$purple;
+          color: colors.$black;
+        }
+      }
+      .container:hover {
+        cursor: pointer;
+        background-color: colors.$section-color;
+      }
+
+      .container:hover img {
+        opacity: 0;
+      }
+      .container:hover .text {
+        top: 20%;
+      }
+      .container:hover .button {
+        bottom: 20%;
+      }
+
+      .container * {
+        transition: all 0.35s ease-in-out;
+      }
+    }
+  }
+}
+
+/* Projects Modal */
+.ProjectModal {
+  background-color: colors.$black;
+  box-sizing: border-box;
+  margin: 5% auto;
+  width: 700px;
+  max-height: 714px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 100%;
+    height: 450px;
+    border-bottom: 1px solid colors.$black;
+  }
+  .details {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    text-align: left;
+    height: auto;
+    box-sizing: border-box;
+
+    .button {
+      width: 30%;
+      background-color: colors.$purple;
+      color: colors.$black;
+      text-align: center;
+      padding: 1rem;
+      float: left;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    svg {
+      font-size: 3rem;
+      fill: colors.$purple;
+      width: 60px;
+      height: 60px;
+      float: right;
+    }
+
+    .button:hover,
+    svg:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .info {
+      padding: 1rem;
+    }
+  }
+  .details * {
+    transition: all 0.3s;
+  }
+
+  .title {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.253);
+    font-weight: bold;
+  }
+  .close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+  }
+  .close-button:hover,
+  .close-button:focus {
+    color: colors.$black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

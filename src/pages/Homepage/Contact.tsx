@@ -3,7 +3,7 @@ import { BiBookmark, BiMailSend, BiMessage, BiUser } from "react-icons/bi";
 import Modal from "../../components/Modal";
 import ContactModal from "./ContactModal";
 import contactService from "../../services/contactService";
-
+import "../../styles/Contact.scss";
 import { BsCheckCircle, BsExclamationCircle } from "react-icons/bs";
 
 const Contact: React.FC = () => {

@@ -3,6 +3,7 @@ import Project from "./Project";
 import Modal from "../../components/Modal";
 import ProjectModal from "./ProjectModal";
 import { projectsFilters } from "../../constants";
+import "../../styles/Projects.scss";
 import sketchpad from "../../images/projects/sketchpad.png";
 import example1 from "../../images/projects/example1.jpg";
 import example2 from "../../images/projects/example2.jpg";
