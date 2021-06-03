@@ -1,0 +1,22 @@
+@use "colors";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+/* Footer */
+.Footer {
+  background-color: colors.$section-color2;
+  color: #a8b2d1;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  padding: 0.5rem;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+
+  .copyright {
+    text-decoration: none;
+  }
+  .copyright:hover {
+    cursor: pointer;
+    color: colors.$purple;
+  }
+}
