@@ -84,22 +84,6 @@ const About: React.FC<Props> = ({ aboutRef }) => {
           </Tooltip>
         </div>
       </div>
-      <div className="tools icon-list">
-        <div className="title">
-          <span className="highlight">tools</span> i use
-        </div>
-        <div className="icons">
-          <Tooltip text="Archlinux">
-            <GrArchlinux />
-          </Tooltip>
-          <Tooltip text="VS Code">
-            <DiVisualstudio />
-          </Tooltip>
-          <Tooltip text="Vim">
-            <DiVim />
-          </Tooltip>
-        </div>
-      </div>
     </section>
   );
 };

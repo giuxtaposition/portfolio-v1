@@ -53,6 +53,10 @@
       flex-direction: row;
       text-align: center;
       justify-content: center;
+
+      flex-wrap: wrap;
+      margin-left: 20rem;
+      margin-right: 20rem;
       svg {
         width: 8vw;
         height: 8vh;
@@ -72,6 +76,7 @@
       }
       .Tooltip {
         position: relative;
+        margin: 0.5rem;
         .tooltip-text {
           width: 8.5vw;
           background-color: colors.$purple;
