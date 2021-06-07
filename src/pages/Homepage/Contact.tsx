@@ -6,7 +6,11 @@ import contactService from "../../services/contactService";
 import "../../styles/Contact.scss";
 import { BsCheckCircle, BsExclamationCircle } from "react-icons/bs";
 
-const Contact: React.FC = () => {
+interface Props {
+  contactRef: React.MutableRefObject<null>;
+}
+
+const Contact: React.FC<Props> = ({ contactRef }) => {
   //STATES
   const [email, setEmail] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -101,7 +105,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="Contact">
+    <section id="Contact" ref={contactRef}>
       <h1 className="title">Contact Me!</h1>
       <form>
         <div className="container">

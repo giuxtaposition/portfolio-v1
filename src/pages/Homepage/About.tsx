@@ -17,9 +17,13 @@ import { GrArchlinux } from "react-icons/gr";
 import Tooltip from "../../components/Tooltip";
 import "../../styles/About.scss";
 
-const About: React.FC = () => {
+interface Props {
+  aboutRef: React.MutableRefObject<null>;
+}
+
+const About: React.FC<Props> = ({ aboutRef }) => {
   return (
-    <section id="About">
+    <section id="About" ref={aboutRef}>
       <div className="about-intro">
         <div className="text">
           <div className="title">

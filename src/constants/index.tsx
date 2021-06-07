@@ -1,19 +1,19 @@
 export const navbarButtons = [
   {
-    name: "home",
-    link: "/",
+    name: "Home",
+    link: "",
   },
   {
-    name: "about",
-    link: "/about",
+    name: "About",
+    link: "about",
   },
   {
-    name: "projects",
-    link: "/projects",
+    name: "Projects",
+    link: "projects",
   },
   {
-    name: "contact",
-    link: "/contact",
+    name: "Contact",
+    link: "contact",
   },
 ];
 

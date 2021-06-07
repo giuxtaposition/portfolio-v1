@@ -21,6 +21,10 @@ interface project {
   id: string;
 }
 
+interface Props {
+  projectsRef: React.MutableRefObject<null>;
+}
+
 const projects = [
   {
     title: "Sketchpad",
@@ -96,7 +100,7 @@ const projects = [
   },
 ];
 
-const Projects: React.FC = () => {
+const Projects: React.FC<Props> = ({ projectsRef }) => {
   // STATES
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showProject, setShowProject] = useState<project | []>([]);
@@ -183,7 +187,7 @@ const Projects: React.FC = () => {
   }, [selectedFilters]);
 
   return (
-    <section id="Projects">
+    <section id="Projects" ref={projectsRef}>
       <div className="title">Projects</div>
       <div className="filter-container">
         {projectsFilters.map((filter, key) => (

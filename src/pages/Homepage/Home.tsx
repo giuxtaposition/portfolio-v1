@@ -6,16 +6,25 @@ import Navbar from "../Navbar";
 import "../../styles/Home.scss";
 import { Link } from "react-router-dom";
 
-const Home: React.FC = () => {
+interface Props {
+  homeRef: React.MutableRefObject<null>;
+  navbarRef: React.MutableRefObject<null>;
+  visibleSection: string | undefined;
+}
+
+const Home: React.FC<Props> = ({ homeRef, navbarRef, visibleSection }) => {
   const textAnimation: string = "Full Stack Web Developer";
 
   const handleClick = () => {
-    document.getElementsByClassName("Contact")[0].scrollIntoView();
+    document.getElementById("Contact")!.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
-    <section id="Home">
-      <Navbar />
+    <section id="Home" ref={homeRef}>
+      <Navbar navbarRef={navbarRef} visibleSection={visibleSection} />
       <div className="greeting header-text">
         <h1>
           Hello! <HiSparkles fill="#f1fa8c" />{" "}
@@ -30,12 +39,12 @@ const Home: React.FC = () => {
         <Typewriter words={textAnimation} />
       </div>
       <div className="contact-button header-text">
-        <Link to="contact">
-          <button>
+        <button onClick={() => handleClick()}>
+          <Link to="contact">
             Contact Me
             <FaArrowRight />
-          </button>
-        </Link>
+          </Link>
+        </button>
       </div>
     </section>
   );

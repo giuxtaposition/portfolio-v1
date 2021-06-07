@@ -8,17 +8,29 @@ interface Props {
 }
 
 const NavbarButton: React.FC<Props> = ({ name, linkPath }) => {
+  const scrollTo = (name: string) => {
+    let element = document.getElementById(name);
+    element!.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <>
-      <li className="NavbarButton" id={`${name}-navbar`}>
+      <li
+        className="NavbarButton"
+        id={`${name}-navbar`}
+        onClick={() => scrollTo(name)}
+      >
         <Link to={linkPath}>
-          {name === "home" ? (
+          {name === "Home" ? (
             <FiHome />
-          ) : name === "about" ? (
+          ) : name === "About" ? (
             <FiUser />
-          ) : name === "projects" ? (
+          ) : name === "Projects" ? (
             <FiPackage />
-          ) : name === "contact" ? (
+          ) : name === "Contact" ? (
             <FiMail />
           ) : (
             ""
