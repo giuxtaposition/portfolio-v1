@@ -2,7 +2,7 @@
 @use "section";
 
 /* Contact*/
-.Contact {
+#Contact {
   @include section.section;
   width: 100%;
   padding: 2rem;

@@ -4,6 +4,7 @@ import { HiSparkles } from "react-icons/hi";
 import { FaArrowRight } from "react-icons/fa";
 import Navbar from "../Navbar";
 import "../../styles/Home.scss";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   const textAnimation: string = "Full Stack Web Developer";
@@ -13,7 +14,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <section className="Home">
+    <section id="Home">
       <Navbar />
       <div className="greeting header-text">
         <h1>
@@ -29,10 +30,12 @@ const Home: React.FC = () => {
         <Typewriter words={textAnimation} />
       </div>
       <div className="contact-button header-text">
-        <button onClick={handleClick}>
-          Contact Me
-          <FaArrowRight />
-        </button>
+        <Link to="contact">
+          <button>
+            Contact Me
+            <FaArrowRight />
+          </button>
+        </Link>
       </div>
     </section>
   );

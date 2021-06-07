@@ -183,7 +183,7 @@ const Projects: React.FC = () => {
   }, [selectedFilters]);
 
   return (
-    <section className="Projects">
+    <section id="Projects">
       <div className="title">Projects</div>
       <div className="filter-container">
         {projectsFilters.map((filter, key) => (

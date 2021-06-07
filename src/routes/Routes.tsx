@@ -9,13 +9,11 @@ import Footer from "../pages/Footer";
 const AppContainer: React.FC = () => {
   return (
     <>
-      <div className="scrollsnap-container">
-        <Home />
-        <About />
-        <Projects />
-        <Contact />
-        <Footer />
-      </div>
+      <Home />
+      <About />
+      <Projects />
+      <Contact />
+      <Footer />
     </>
   );
 };
@@ -24,17 +22,30 @@ const Routes: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
+    const handleScroll = (element: HTMLElement) => {
+      setTimeout(() => {
+        window.scrollTo({
+          behavior: element ? "smooth" : "auto",
+          top: element ? element.offsetTop : 0,
+        });
+      }, 100);
+    };
+
     if (location.pathname === "/") {
-      document.getElementsByClassName("Home")[0].scrollIntoView();
+      const element = document.getElementById("Home");
+      handleScroll(element!);
       document.getElementById("home-navbar")?.classList.add("active");
     } else if (location.pathname === "/about") {
-      document.getElementsByClassName("About")[0].scrollIntoView();
+      const element = document.getElementById("About");
+      handleScroll(element!);
       document.getElementById("about-navbar")?.classList.add("active");
     } else if (location.pathname === "/projects") {
-      document.getElementsByClassName("Projects")[0].scrollIntoView();
+      const element = document.getElementById("Projects");
+      handleScroll(element!);
       document.getElementById("projects-navbar")?.classList.add("active");
     } else if (location.pathname === "/contact") {
-      document.getElementsByClassName("Contact")[0].scrollIntoView();
+      const element = document.getElementById("Contact");
+      handleScroll(element!);
       document.getElementById("contact-navbar")?.classList.add("active");
     }
   }, [location]);

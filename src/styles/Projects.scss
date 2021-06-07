@@ -2,7 +2,7 @@
 @use "section";
 
 /* Projects */
-.Projects {
+#Projects {
   @include section.section;
   font-family: Roboto;
   text-align: center;

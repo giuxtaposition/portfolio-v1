@@ -2,7 +2,7 @@
 @use "section";
 
 /* About */
-.About {
+#About {
   @include section.section;
   text-align: center;
   height: 100vh;

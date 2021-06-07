@@ -19,7 +19,7 @@ import "../../styles/About.scss";
 
 const About: React.FC = () => {
   return (
-    <section className="About">
+    <section id="About">
       <div className="about-intro">
         <div className="text">
           <div className="title">
