@@ -21,12 +21,16 @@
 
   @media screen and (max-width: 800px) {
     background-color: colors.$black;
+    justify-content: space-between;
   }
   .title {
     font-size: 2rem;
     font-weight: bold;
     color: colors.$purple;
     cursor: pointer;
+    @media screen and (max-width: 800px) {
+      margin: 1em;
+    }
   }
   .title:hover {
     animation-name: bounce;
@@ -114,6 +118,7 @@
     @media screen and (max-width: 800px) {
       display: block;
       cursor: pointer;
+      margin: 2em;
     }
   }
 

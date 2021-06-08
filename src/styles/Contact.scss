@@ -90,6 +90,11 @@
   width: 700px;
   max-height: 714px;
 
+  @media screen and (max-width: 800px) {
+    width: auto;
+    margin: 1em;
+  }
+
   .contact-icon svg {
     width: 5rem;
     height: 5rem;

@@ -5,6 +5,7 @@
 /* Home */
 #Home {
   @include section.section;
+  height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/header.jpg");
   background-repeat: no-repeat;
@@ -55,6 +56,13 @@
     font-family: "Raleway", serif;
     font-weight: bold;
     letter-spacing: 0.15em;
+
+    @media screen and (max-width: 800px) {
+      font-size: 1.5em;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 1em;
+    }
 
     .pointer {
       background: colors.$purple;

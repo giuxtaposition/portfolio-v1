@@ -5,7 +5,6 @@
 #About {
   @include section.section;
   text-align: center;
-  height: 100vh;
   width: 100%;
   background-color: colors.$section-color;
 
@@ -20,18 +19,33 @@
       text-transform: uppercase;
       font-weight: bold;
       font-size: 2rem;
-      padding: 1rem;
+      padding: 2rem;
+
+      @media screen and (max-width: 800px) {
+        padding: 1em;
+      }
+      @media screen and (max-width: 480px) {
+        padding: 0.5em;
+      }
     }
 
     .description {
       padding: 0.5rem;
       font-size: 1.2rem;
       line-height: 1.2;
+
+      @media screen and (max-width: 800px) {
+        line-height: 1;
+        margin: 1em;
+      }
     }
   }
   .icon img {
     width: auto;
     height: 450px;
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
   }
 
   .icon-list {
@@ -55,17 +69,22 @@
       justify-content: center;
 
       flex-wrap: wrap;
-      margin-left: 20rem;
-      margin-right: 20rem;
+      @media screen and (max-width: 800px) {
+        margin: 0;
+      }
       svg {
-        width: 8vw;
-        height: 8vh;
+        width: 6em;
+        height: 4em;
         margin: 0.25rem 1rem 0.25rem 0.25rem;
         border: 1px solid colors.$purple;
         border-radius: 5px;
         padding: 0.5rem;
         box-shadow: 0 0 5px colors.$purple;
         transition: all 300ms ease-in-out;
+        @media screen and (max-width: 800px) {
+          margin: 0;
+          width: 4em;
+        }
       }
       svg:hover {
         border: 2px solid colors.$purple;
@@ -78,7 +97,7 @@
         position: relative;
         margin: 0.5rem;
         .tooltip-text {
-          width: 8.5vw;
+          width: 6em;
           background-color: colors.$purple;
           color: colors.$black;
           text-align: center;

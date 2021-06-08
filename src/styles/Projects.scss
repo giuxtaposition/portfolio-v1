@@ -20,6 +20,11 @@
     display: flex;
     justify-content: center;
     padding: 2rem;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 800px) {
+      padding: 0;
+    }
 
     .filter {
       border: none;
@@ -34,6 +39,10 @@
       font: inherit;
       line-height: 1;
       cursor: pointer;
+
+      @media screen and (max-width: 800px) {
+        margin: 0.5em;
+      }
     }
 
     .filter:hover,
@@ -50,8 +59,12 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    flex-wrap: wrap;
     width: 100%;
+
+    @media screen and (max-width: 1520px) {
+      flex-direction: column;
+      align-items: center;
+    }
 
     .Project {
       text-align: center;
@@ -59,11 +72,19 @@
       float: left;
       overflow: hidden;
       padding: 1rem;
+      @media screen and (max-width: 480px) {
+        padding: 0;
+      }
       .container {
         margin: 10px 1%;
         width: 25rem;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
         box-sizing: border-box;
+
+        @media screen and (max-width: 480px) {
+          width: auto;
+        }
+
         img {
           max-width: 100%;
           vertical-align: top;
@@ -134,17 +155,29 @@
   flex-direction: column;
   position: relative;
 
+  @media screen and (max-width: 800px) {
+    width: auto;
+    margin: 2em;
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   .projectTags {
-    position: absolute;
-    top: 52%;
-    left: 0%;
     background: rgba(0, 0, 0, 0.4);
     width: 100%;
     padding: 1em;
+    @media screen and (max-width: 480px) {
+      padding: 0.5em;
+    }
   }
   .projectTag {
     color: colors.$black;
     margin-right: 0.5em;
+    margin-bottom: 0.5em;
     border: none;
     padding: 0.5em 1em;
     text-decoration: none;
@@ -154,6 +187,10 @@
     width: 100%;
     height: 450px;
     border-bottom: 1px solid colors.$black;
+
+    @media screen and (max-width: 480px) {
+      height: 100%;
+    }
   }
   .details {
     padding: 0 1.5rem 1.5rem 1.5rem;
