@@ -5,9 +5,14 @@ import { Link } from "react-router-dom";
 interface Props {
   name: string;
   linkPath: string;
+  setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavbarButton: React.FC<Props> = ({ name, linkPath }) => {
+const NavbarButton: React.FC<Props> = ({
+  name,
+  linkPath,
+  setShowMobileMenu,
+}) => {
   const scrollTo = (name: string) => {
     let element = document.getElementById(name);
     element!.scrollIntoView({
@@ -16,12 +21,17 @@ const NavbarButton: React.FC<Props> = ({ name, linkPath }) => {
     });
   };
 
+  const handleClick = (scrollName: string) => {
+    scrollTo(scrollName);
+    setShowMobileMenu(false);
+  };
+
   return (
     <>
       <li
         className="NavbarButton"
         id={`${name}-navbar`}
-        onClick={() => scrollTo(name)}
+        onClick={() => handleClick(name)}
       >
         <Link to={linkPath}>
           {name === "Home" ? (

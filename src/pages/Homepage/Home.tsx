@@ -2,7 +2,7 @@ import React from "react";
 import Typewriter from "../../components/Typewriter";
 import { HiSparkles } from "react-icons/hi";
 import { FaArrowRight } from "react-icons/fa";
-import Navbar from "../Navbar";
+import Navbar from "../Navbar/Navbar";
 import "../../styles/Home.scss";
 import { Link } from "react-router-dom";
 

@@ -2,21 +2,26 @@
 /* Navbar */
 .Navbar.scrolled-navbar {
   background-color: rgba(40, 42, 54, 0.5);
+  @media screen and (max-width: 800px) {
+    background-color: colors.$black;
+  }
 }
 
 .Navbar {
   width: 100%;
   height: 10%;
-  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1rem;
   position: fixed;
   top: 0;
   background-color: rgba(40, 42, 54, 0);
   transition: all 0.2s ease-in-out;
   z-index: 1;
+
+  @media screen and (max-width: 800px) {
+    background-color: colors.$black;
+  }
   .title {
     font-size: 2rem;
     font-weight: bold;
@@ -29,6 +34,13 @@
     animation-fill-mode: both;
     animation-iteration-count: infinite;
   }
+
+  .NavbarButtons.active {
+    @media screen and (max-width: 800px) {
+      left: 0;
+    }
+  }
+
   .NavbarButtons {
     display: flex;
     align-items: center;
@@ -36,12 +48,33 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+
+    @media screen and (max-width: 800px) {
+      position: fixed;
+      justify-content: start;
+      left: -100%;
+      top: 10%;
+      flex-direction: column;
+      background-color: colors.$black;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
     .NavbarButton {
       cursor: pointer;
       padding: 0.85rem;
       margin: 5px;
       font-size: 1.5rem;
       position: relative;
+
+      @media screen and (max-width: 800px) {
+        margin: 1.5vw 0;
+        position: relative;
+      }
 
       svg {
         margin-right: 5px;
@@ -76,6 +109,23 @@
       }
     }
   }
+  .NavbarHamburger {
+    display: none;
+    @media screen and (max-width: 800px) {
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: colors.$purple;
+  }
 }
 
 @keyframes bounce {
@@ -91,5 +141,19 @@
   }
   60% {
     transform: translateY(-10px);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .NavbarHamburger.active {
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
   }
 }
