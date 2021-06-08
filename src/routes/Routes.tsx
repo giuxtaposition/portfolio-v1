@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { HashRouter, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Home from "../pages/Homepage/Home";
 import About from "../pages/Homepage/About";
 import Projects from "../pages/Homepage/Projects";
@@ -19,11 +19,16 @@ const getDimensions = (element: HTMLElement) => {
 };
 
 const Routes: React.FC = () => {
+  // STATES
   const [visibleSection, setVisibleSection] = useState<string | undefined>("");
+  const [scrolled, setScrolled] = useState(0);
+  const [status, setStatus] = useState<"top" | "scrolled">("top");
 
+  // VARIABLES
   let history = useHistory();
   let location = useLocation();
 
+  // REFS
   const navbarRef = useRef(null);
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
@@ -37,10 +42,64 @@ const Routes: React.FC = () => {
     { section: "Contact", ref: contactRef },
   ];
 
+  //FUNCTIONS
+  // Remove "active" class from navbar
+  function removeActiveClass() {
+    let navbarButtons = document.getElementsByClassName("NavbarButton");
+    for (let index in navbarButtons) {
+      if (navbarButtons.hasOwnProperty(index)) {
+        navbarButtons[index].classList.remove("active");
+      }
+    }
+  }
+
+  // Change Hash on scroll
+  function hashChange() {
+    if (visibleSection === "Home") {
+      if (location.hash !== "/") {
+        history.replace((location.hash = "/"));
+        removeActiveClass();
+      }
+      document.getElementById("Home-navbar")?.classList.add("active");
+    } else if (visibleSection === "About") {
+      if (location.hash !== "/about") {
+        history.replace((location.hash = "/about"));
+        removeActiveClass();
+      }
+      document.getElementById("About-navbar")?.classList.add("active");
+    } else if (visibleSection === "Projects") {
+      if (location.hash !== "/projects") {
+        history.replace((location.hash = "/projects"));
+        removeActiveClass();
+      }
+      document.getElementById("Projects-navbar")?.classList.add("active");
+    } else if (visibleSection === "Contact") {
+      if (location.hash !== "/contact") {
+        history.replace((location.hash = "/contact"));
+        removeActiveClass();
+      }
+      document.getElementById("Contact-navbar")?.classList.add("active");
+    }
+  }
+
+  // Change navbar color on scroll
+  function navbarScrollStatus() {
+    setScrolled(window.pageYOffset);
+    if (scrolled >= 120) {
+      if (status !== "scrolled") {
+        setStatus("scrolled");
+      }
+    } else {
+      if (status !== "top") {
+        setStatus("top");
+      }
+    }
+  }
+
   useEffect(() => {
-    const handleScroll = () => {
+    const checkVisibleSection = () => {
       const { height: headerHeight } = getDimensions(navbarRef.current!);
-      const scrollPosition = window.scrollY + headerHeight;
+      const scrollPosition = window.scrollY + headerHeight + 10;
 
       const selected = sectionRefs.find(({ section, ref }) => {
         const element = ref.current;
@@ -56,10 +115,12 @@ const Routes: React.FC = () => {
         setVisibleSection(undefined);
       }
     };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    checkVisibleSection();
+    hashChange();
+    navbarScrollStatus();
+    window.addEventListener("scroll", checkVisibleSection);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", checkVisibleSection);
     };
   }, [visibleSection]);
 
@@ -69,17 +130,18 @@ const Routes: React.FC = () => {
   }, []);
 
   return (
-    <HashRouter>
+    <>
       <Home
         navbarRef={navbarRef}
         homeRef={homeRef}
         visibleSection={visibleSection}
+        navbarStatus={status}
       />
       <About aboutRef={aboutRef} />
       <Projects projectsRef={projectsRef} />
       <Contact contactRef={contactRef} />
       <Footer />
-    </HashRouter>
+    </>
   );
 };
 export default Routes;

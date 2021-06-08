@@ -10,9 +10,15 @@ interface Props {
   homeRef: React.MutableRefObject<null>;
   navbarRef: React.MutableRefObject<null>;
   visibleSection: string | undefined;
+  navbarStatus: string;
 }
 
-const Home: React.FC<Props> = ({ homeRef, navbarRef, visibleSection }) => {
+const Home: React.FC<Props> = ({
+  homeRef,
+  navbarRef,
+  visibleSection,
+  navbarStatus,
+}) => {
   const textAnimation: string = "Full Stack Web Developer";
 
   const handleClick = () => {
@@ -24,7 +30,11 @@ const Home: React.FC<Props> = ({ homeRef, navbarRef, visibleSection }) => {
 
   return (
     <section id="Home" ref={homeRef}>
-      <Navbar navbarRef={navbarRef} visibleSection={visibleSection} />
+      <Navbar
+        navbarRef={navbarRef}
+        visibleSection={visibleSection}
+        status={navbarStatus}
+      />
       <div className="greeting header-text">
         <h1>
           Hello! <HiSparkles fill="#f1fa8c" />{" "}

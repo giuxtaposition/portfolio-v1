@@ -15,9 +15,19 @@ const NavbarButton: React.FC<Props> = ({
 }) => {
   const scrollTo = (name: string) => {
     let element = document.getElementById(name);
-    element!.scrollIntoView({
+    let navbarHeight =
+      document.getElementsByClassName("Navbar")[0].clientHeight;
+    let elementPosition = element!.offsetTop;
+    let offsetPosition = elementPosition - navbarHeight;
+
+    console.log("element ", element);
+    console.log("navbarHeight ", navbarHeight);
+    console.log("elementPosition ", elementPosition);
+    console.log("offsetPosition ", offsetPosition);
+
+    window.scrollTo({
+      top: offsetPosition,
       behavior: "smooth",
-      block: "start",
     });
   };
 
