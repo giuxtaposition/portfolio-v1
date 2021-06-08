@@ -4,8 +4,8 @@
 /* Projects */
 #Projects {
   @include section.section;
+  justify-content: normal;
   font-family: Roboto;
-  text-align: center;
   width: 100%;
   padding: 2rem;
   background-color: colors.$section-color2;
@@ -132,6 +132,24 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  .projectTags {
+    position: absolute;
+    top: 52%;
+    left: 0%;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    padding: 1em;
+  }
+  .projectTag {
+    color: colors.$black;
+    margin-right: 0.5em;
+    border: none;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 16px;
+  }
   img {
     width: 100%;
     height: 450px;

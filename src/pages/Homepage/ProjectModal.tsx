@@ -1,5 +1,6 @@
 import React from "react";
 import { DiGithubBadge } from "react-icons/di";
+import RandomColor from "../../components/RandomColor";
 
 interface Props {
   title: string;
@@ -28,6 +29,17 @@ const ProjectModal: React.FC<Props> = ({
         &times;
       </span>
       <img src={img} alt={imgAlt}></img>
+      <div className="projectTags">
+        {projectTags.map((tag, key) => (
+          <button
+            style={{ backgroundColor: RandomColor() }}
+            className="projectTag"
+            key={key}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
       <div className="details">
         <div className="title">{title}</div>
         <p className="info">{text}</p>

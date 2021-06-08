@@ -20,8 +20,11 @@ export const navbarButtons = [
 export const projectsFilters = [
   "all",
   "javascript",
+  "typescript",
+  "sass",
   "react",
   "bootstrap",
   "material-ui",
   "firebase",
+  "nodejs",
 ];

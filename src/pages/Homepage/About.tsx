@@ -7,13 +7,10 @@ import {
   DiJavascript1,
   DiNodejs,
   DiReact,
-  DiVisualstudio,
-  DiVim,
   DiHtml5,
   DiCss3,
 } from "react-icons/di";
 import { SiMaterialUi } from "react-icons/si";
-import { GrArchlinux } from "react-icons/gr";
 import Tooltip from "../../components/Tooltip";
 import "../../styles/About.scss";
 

@@ -5,9 +5,8 @@ import ProjectModal from "./ProjectModal";
 import { projectsFilters } from "../../constants";
 import "../../styles/Projects.scss";
 import sketchpad from "../../images/projects/sketchpad.png";
-import example1 from "../../images/projects/example1.jpg";
-import example2 from "../../images/projects/example2.jpg";
-import example3 from "../../images/projects/example3.jpg";
+import todo from "../../images/projects/todo.png";
+import portfolio from "../../images/projects/portfolio.png";
 
 interface project {
   title: string;
@@ -33,70 +32,40 @@ const projects = [
     description: "A simple site to make some pixel art",
     longerDescription:
       "A simple site to make some pixel art. You can change color, erase, change grid size and other nice features!",
-    projectLink: "https://giuxtaposition-sketchpad.netlify.app/",
-    projectTags: ["html", "css", "javascript"],
+    projectLink: "https://giuxtaposition.github.io/sketchpad/",
+    projectTags: ["html", "css", "javascript", "react"],
     projectGithub: "https://github.com/giuxtaposition/sketchpad",
     id: "sketchpad",
   },
   {
-    title: "project  title",
-    img: example2,
-    imgAlt: "example",
-    description: "This is my Description, I know it's short",
+    title: "Todo App",
+    img: todo,
+    imgAlt: "Todo App",
+    description: "A Todo List App",
     longerDescription:
-      "This is my Longer Description, I hope it's  long enough, or else I won't know what to do",
-    projectLink: "#",
-    projectTags: ["firebase", "react"],
-    projectGithub: "",
-    id: "another",
+      "A Todo List App. You can add new tasks, categorize them into projects, filter them based on project or day!",
+    projectLink: "https://giuxtaposition.github.io/todo-app/",
+    projectTags: [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "firebase",
+      "material-ui",
+    ],
+    projectGithub: "https://github.com/giuxtaposition/todo-app",
+    id: "todo",
   },
   {
-    title: "project  title",
-    img: example3,
-    imgAlt: "example",
-    description: "This is my Description, I know it's short",
-    longerDescription:
-      "This is my Longer Description, I hope it's  long enough, or else I won't know what to do",
-    projectLink: "#",
-    projectTags: ["firebase", "react"],
-    projectGithub: "",
-    id: "other",
-  },
-  {
-    title: "project  title",
-    img: example1,
-    imgAlt: "example",
-    description: "This is my Description, I know it's short",
-    longerDescription:
-      "This is my Longer Description, I hope it's  long enough, or else I won't know what to do",
-    projectLink: "#",
-    projectTags: ["firebase", "react"],
-    projectGithub: "",
-    id: "bho",
-  },
-  {
-    title: "project  title",
-    img: example2,
-    imgAlt: "example",
-    description: "This is my Description, I know it's short",
-    longerDescription:
-      "This is my Longer Description, I hope it's  long enough, or else I won't know what to do",
-    projectLink: "#",
-    projectTags: ["firebase", "react"],
-    projectGithub: "",
-    id: "work",
-  },
-  {
-    title: "project  title",
-    img: example3,
-    imgAlt: "example",
-    description: "This is my Description, I know it's short",
-    longerDescription:
-      "This is my Longer Description, I hope it's  long enough, or else I won't know what to do",
-    projectLink: "#",
-    projectTags: ["firebase", "react"],
-    projectGithub: "",
-    id: "please",
+    title: "Portfolio Site",
+    img: portfolio,
+    imgAlt: "portfolio",
+    description: "This site. My portfolio.",
+    longerDescription: "A website to showcase all of my projects.",
+    projectLink: "https://giuxtaposition.github.io/",
+    projectTags: ["html", "sass", "typescript", "react", "nodejs"],
+    projectGithub: "https://github.com/giuxtaposition/giuxtaposition.github.io",
+    id: "portofolio",
   },
 ];
 
