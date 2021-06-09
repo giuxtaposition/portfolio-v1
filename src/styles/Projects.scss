@@ -251,3 +251,19 @@
     cursor: pointer;
   }
 }
+
+//ANIMATION
+.filtered-project-enter {
+  opacity: 0;
+}
+.filtered-project-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.filtered-project-exit {
+  opacity: 1;
+}
+.filtered-project-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}

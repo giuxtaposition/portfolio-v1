@@ -20,11 +20,6 @@ const NavbarButton: React.FC<Props> = ({
     let elementPosition = element!.offsetTop;
     let offsetPosition = elementPosition - navbarHeight;
 
-    console.log("element ", element);
-    console.log("navbarHeight ", navbarHeight);
-    console.log("elementPosition ", elementPosition);
-    console.log("offsetPosition ", offsetPosition);
-
     window.scrollTo({
       top: offsetPosition,
       behavior: "smooth",

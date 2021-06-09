@@ -1,6 +1,6 @@
 import "./styles/App.scss";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Routes from "./routes/Routes";
 import LoadingScreen from "./components/LoadingScreen";
 
@@ -19,17 +19,15 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Router>
+      <HashRouter basename={"/"}>
         {loading === false ? (
           <div className="App">
-            <HashRouter>
-              <Routes />
-            </HashRouter>
+            <Routes />
           </div>
         ) : (
           <LoadingScreen />
         )}
-      </Router>
+      </HashRouter>
     </>
   );
 };

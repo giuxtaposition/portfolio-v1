@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NavbarButtons from "./NavbarButtons";
 import NavbarHamburger from "./NavbarHamburger";
 import "../../styles/Navbar.scss";
-import { useHistory, useLocation } from "react-router-dom";
 
 interface Props {
   navbarRef: React.MutableRefObject<null>;
-  visibleSection: string | undefined;
   status: string;
 }
 
-const Navbar: React.FC<Props> = ({ navbarRef, visibleSection, status }) => {
+const Navbar: React.FC<Props> = ({ navbarRef, status }) => {
   // STATES
-
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  let history = useHistory();
-  let location = useLocation();
-
-  //FUNCTIONS
 
   return (
     <div

@@ -124,19 +124,9 @@ const Routes: React.FC = () => {
     };
   }, [visibleSection]);
 
-  useEffect(() => {
-    history.replace((location.hash = "/"));
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
-      <Home
-        navbarRef={navbarRef}
-        homeRef={homeRef}
-        visibleSection={visibleSection}
-        navbarStatus={status}
-      />
+      <Home navbarRef={navbarRef} homeRef={homeRef} navbarStatus={status} />
       <About aboutRef={aboutRef} />
       <Projects projectsRef={projectsRef} />
       <Contact contactRef={contactRef} />

@@ -7,6 +7,7 @@ import "../../styles/Projects.scss";
 import sketchpad from "../../images/projects/sketchpad.png";
 import todo from "../../images/projects/todo.png";
 import portfolio from "../../images/projects/portfolio.png";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 interface project {
   title: string;
@@ -171,21 +172,29 @@ const Projects: React.FC<Props> = ({ projectsRef }) => {
         ))}
       </div>
       <div className="container">
-        {filteredProjects.map(
-          (project: project, key: React.Key | null | undefined) => (
-            <Project
-              key={key}
-              title={project.title}
-              description={project.description}
-              img={project.img}
-              imgAlt={project.imgAlt}
-              setShowModal={setShowModal}
-              setShowProject={setShowProject}
-              project={project}
-              id={project.id}
-            />
-          )
-        )}
+        <TransitionGroup className="filtered-projects">
+          {filteredProjects.map(
+            (project: project, key: React.Key | null | undefined) => (
+              <CSSTransition
+                key={project.id}
+                timeout={500}
+                classNames="filtered-project"
+              >
+                <Project
+                  key={key}
+                  title={project.title}
+                  description={project.description}
+                  img={project.img}
+                  imgAlt={project.imgAlt}
+                  setShowModal={setShowModal}
+                  setShowProject={setShowProject}
+                  project={project}
+                  id={project.id}
+                />
+              </CSSTransition>
+            )
+          )}
+        </TransitionGroup>
       </div>
       <Modal showModal={showModal} setShowModal={setShowModal}>
         <ProjectModal
