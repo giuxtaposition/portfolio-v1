@@ -1,10 +1,42 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Route } from "react-router-dom";
 import Home from "../pages/Homepage/Home";
 import About from "../pages/Homepage/About";
 import Projects from "../pages/Homepage/Projects";
 import Contact from "../pages/Homepage/Contact";
 import Footer from "../pages/Footer";
+
+interface Props {
+  navbarRef: React.MutableRefObject<null>;
+  homeRef: React.MutableRefObject<null>;
+  aboutRef: React.MutableRefObject<null>;
+  projectsRef: React.MutableRefObject<null>;
+  contactRef: React.MutableRefObject<null>;
+  navbarStatus: string;
+}
+
+const AppContainer: React.FC<Props> = ({
+  navbarRef,
+  homeRef,
+  aboutRef,
+  projectsRef,
+  contactRef,
+  navbarStatus,
+}) => {
+  return (
+    <>
+      <Home
+        navbarRef={navbarRef}
+        homeRef={homeRef}
+        navbarStatus={navbarStatus}
+      />
+      <About aboutRef={aboutRef} />
+      <Projects projectsRef={projectsRef} />
+      <Contact contactRef={contactRef} />
+      <Footer />
+    </>
+  );
+};
 
 const getDimensions = (element: HTMLElement) => {
   const { height } = element.getBoundingClientRect();
@@ -43,42 +75,25 @@ const Routes: React.FC = () => {
   ];
 
   //FUNCTIONS
-  // Remove "active" class from navbar
-  function removeActiveClass() {
-    let navbarButtons = document.getElementsByClassName("NavbarButton");
-    for (let index in navbarButtons) {
-      if (navbarButtons.hasOwnProperty(index)) {
-        navbarButtons[index].classList.remove("active");
-      }
-    }
-  }
-
-  // Change Hash on scroll
-  function hashChange() {
+  // Change pathname on scroll
+  function pathnameChange() {
     if (visibleSection === "Home") {
-      if (location.hash !== "/") {
-        history.replace((location.hash = "/"));
-        removeActiveClass();
+      if (location.pathname !== "/") {
+        history.replace((location.pathname = "/"));
       }
-      document.getElementById("Home-navbar")?.classList.add("active");
     } else if (visibleSection === "About") {
-      if (location.hash !== "/about") {
-        history.replace((location.hash = "/about"));
-        removeActiveClass();
+      if (location.pathname !== "/about") {
+        history.replace((location.pathname = "/about"));
       }
-      document.getElementById("About-navbar")?.classList.add("active");
     } else if (visibleSection === "Projects") {
-      if (location.hash !== "/projects") {
-        history.replace((location.hash = "/projects"));
-        removeActiveClass();
+      if (location.pathname !== "/projects") {
+        history.replace((location.pathname = "/projects"));
       }
-      document.getElementById("Projects-navbar")?.classList.add("active");
+      console.log("adding active class");
     } else if (visibleSection === "Contact") {
-      if (location.hash !== "/contact") {
-        history.replace((location.hash = "/contact"));
-        removeActiveClass();
+      if (location.pathname !== "/contact") {
+        history.replace((location.pathname = "/contact"));
       }
-      document.getElementById("Contact-navbar")?.classList.add("active");
     }
   }
 
@@ -99,7 +114,7 @@ const Routes: React.FC = () => {
   useEffect(() => {
     const checkVisibleSection = () => {
       const { height: headerHeight } = getDimensions(navbarRef.current!);
-      const scrollPosition = window.scrollY + headerHeight + 10;
+      const scrollPosition = window.scrollY + headerHeight;
 
       const selected = sectionRefs.find(({ section, ref }) => {
         const element = ref.current;
@@ -116,7 +131,7 @@ const Routes: React.FC = () => {
       }
     };
     checkVisibleSection();
-    hashChange();
+    pathnameChange();
     navbarScrollStatus();
     window.addEventListener("scroll", checkVisibleSection);
     return () => {
@@ -124,13 +139,57 @@ const Routes: React.FC = () => {
     };
   }, [visibleSection]);
 
+  // Scroll to correct section at page refresh on specific url
+  useEffect(() => {
+    let elementId = location.pathname;
+    elementId =
+      elementId.charAt(1).toUpperCase() +
+      elementId.substring(2, elementId.length);
+    document.getElementById(elementId)?.scrollIntoView();
+  }, []);
+
   return (
     <>
-      <Home navbarRef={navbarRef} homeRef={homeRef} navbarStatus={status} />
-      <About aboutRef={aboutRef} />
-      <Projects projectsRef={projectsRef} />
-      <Contact contactRef={contactRef} />
-      <Footer />
+      <Route exact path="/">
+        <AppContainer
+          navbarRef={navbarRef}
+          homeRef={homeRef}
+          navbarStatus={status}
+          aboutRef={aboutRef}
+          projectsRef={projectsRef}
+          contactRef={contactRef}
+        />
+      </Route>
+      <Route path="/about">
+        <AppContainer
+          navbarRef={navbarRef}
+          homeRef={homeRef}
+          navbarStatus={status}
+          aboutRef={aboutRef}
+          projectsRef={projectsRef}
+          contactRef={contactRef}
+        />
+      </Route>
+      <Route path="/projects">
+        <AppContainer
+          navbarRef={navbarRef}
+          homeRef={homeRef}
+          navbarStatus={status}
+          aboutRef={aboutRef}
+          projectsRef={projectsRef}
+          contactRef={contactRef}
+        />
+      </Route>
+      <Route path="/contact">
+        <AppContainer
+          navbarRef={navbarRef}
+          homeRef={homeRef}
+          navbarStatus={status}
+          aboutRef={aboutRef}
+          projectsRef={projectsRef}
+          contactRef={contactRef}
+        />
+      </Route>
     </>
   );
 };

@@ -119,7 +119,6 @@ const Contact: React.FC<Props> = ({ contactRef }) => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Name"
-              autoFocus
             />
             {errors.name.length > 0 && (
               <div className="contact-error">{errors.name}</div>
@@ -136,7 +135,6 @@ const Contact: React.FC<Props> = ({ contactRef }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              autoFocus
             />
             {errors.email.length > 0 && (
               <div className="contact-error">{errors.email}</div>
@@ -153,7 +151,6 @@ const Contact: React.FC<Props> = ({ contactRef }) => {
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               placeholder="Subject"
-              autoFocus
             />
             {errors.subject.length > 0 && (
               <div className="contact-error">{errors.subject}</div>
