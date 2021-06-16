@@ -76,9 +76,9 @@ const projects = [
     description: 'Library management site',
     longerDescription:
       'Search books and add them to your library. Keep track of read and not read  books',
-    projectLink: 'https://giuxtaposition.github.io/',
+    projectLink: 'https://giuxtaposition.github.io/bookworm',
     projectTags: ['html', 'css', 'javascript', 'react'],
-    projectGithub: 'https://github.com/giuxtaposition/giuxtaposition.github.io',
+    projectGithub: 'https://github.com/giuxtaposition/bookworm',
     id: 'bookworm',
   },
 ]
