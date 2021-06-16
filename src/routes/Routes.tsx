@@ -111,8 +111,6 @@ const Routes: React.FC = () => {
   }
 
   useEffect(() => {
-    console.log(location.pathname)
-
     const checkVisibleSection = () => {
       const { height: headerHeight } = getDimensions(navbarRef.current!)
       const scrollPosition = window.scrollY + headerHeight
