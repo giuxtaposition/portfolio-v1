@@ -67,7 +67,7 @@ const projects = [
     projectLink: 'https://giuxtaposition.github.io/portfolio-v1',
     projectTags: ['html', 'sass', 'typescript', 'react', 'nodejs'],
     projectGithub: 'https://github.com/giuxtaposition/portfolio-v1',
-    id: 'portofolio',
+    id: 'portfolio',
   },
   {
     title: 'Bookworm',

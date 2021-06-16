@@ -78,20 +78,20 @@ const Routes: React.FC = () => {
   // Change pathname on scroll
   function pathnameChange() {
     if (visibleSection === 'Home') {
-      if (location.pathname !== '/') {
-        history.replace((location.pathname = '/'))
+      if (location.pathname !== '/portfolio-v1') {
+        history.replace((location.pathname = '/portfolio-v1'))
       }
     } else if (visibleSection === 'About') {
-      if (location.pathname !== '/about') {
-        history.replace((location.pathname = '/about'))
+      if (location.pathname !== '/portfolio-v1/about') {
+        history.replace((location.pathname = '/portfolio-v1/about'))
       }
     } else if (visibleSection === 'Projects') {
-      if (location.pathname !== '/projects') {
-        history.replace((location.pathname = '/projects'))
+      if (location.pathname !== '/portfolio-v1/projects') {
+        history.replace((location.pathname = '/portfolio-v1/projects'))
       }
     } else if (visibleSection === 'Contact') {
-      if (location.pathname !== '/contact') {
-        history.replace((location.pathname = '/contact'))
+      if (location.pathname !== '/portfolio-v1/contact') {
+        history.replace((location.pathname = '/portfolio-v1/contact'))
       }
     }
   }
@@ -111,6 +111,8 @@ const Routes: React.FC = () => {
   }
 
   useEffect(() => {
+    console.log(location.pathname)
+
     const checkVisibleSection = () => {
       const { height: headerHeight } = getDimensions(navbarRef.current!)
       const scrollPosition = window.scrollY + headerHeight
@@ -149,7 +151,7 @@ const Routes: React.FC = () => {
 
   return (
     <>
-      <Route exact path='/'>
+      <Route exact path='/portfolio-v1'>
         <AppContainer
           navbarRef={navbarRef}
           homeRef={homeRef}
@@ -159,7 +161,7 @@ const Routes: React.FC = () => {
           contactRef={contactRef}
         />
       </Route>
-      <Route path='/about'>
+      <Route path='/portfolio-v1/about'>
         <AppContainer
           navbarRef={navbarRef}
           homeRef={homeRef}
@@ -169,7 +171,7 @@ const Routes: React.FC = () => {
           contactRef={contactRef}
         />
       </Route>
-      <Route path='/projects'>
+      <Route path='/portfolio-v1/projects'>
         <AppContainer
           navbarRef={navbarRef}
           homeRef={homeRef}
@@ -179,7 +181,7 @@ const Routes: React.FC = () => {
           contactRef={contactRef}
         />
       </Route>
-      <Route path='/contact'>
+      <Route path='/portfolio-v1/contact'>
         <AppContainer
           navbarRef={navbarRef}
           homeRef={homeRef}

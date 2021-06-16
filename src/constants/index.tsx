@@ -1,30 +1,30 @@
 export const navbarButtons = [
   {
-    name: "Home",
-    link: "",
+    name: 'Home',
+    link: '/portfolio-v1',
   },
   {
-    name: "About",
-    link: "about",
+    name: 'About',
+    link: '/portfolio-v1/about',
   },
   {
-    name: "Projects",
-    link: "projects",
+    name: 'Projects',
+    link: '/portfolio-v1/projects',
   },
   {
-    name: "Contact",
-    link: "contact",
+    name: 'Contact',
+    link: '/portfolio-v1/contact',
   },
-];
+]
 
 export const projectsFilters = [
-  "all",
-  "javascript",
-  "typescript",
-  "sass",
-  "react",
-  "bootstrap",
-  "material-ui",
-  "firebase",
-  "nodejs",
-];
+  'all',
+  'javascript',
+  'typescript',
+  'sass',
+  'react',
+  'bootstrap',
+  'material-ui',
+  'firebase',
+  'nodejs',
+]
