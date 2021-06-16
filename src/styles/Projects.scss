@@ -54,12 +54,14 @@
     }
   }
 
-  .container {
+  .filtered-projects {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
     text-align: center;
     width: 100%;
+    padding-left: 4em;
+    padding-right: 4em;
 
     @media screen and (max-width: 1520px) {
       flex-direction: column;
