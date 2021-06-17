@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-   <a href="https://giuxtaposition.com/portfolio-v1">Go check it out 🎉</a>
+   <a href="https://giuxtaposition.github.io/portfolio-v1">Go check it out 🎉</a>
 </p>
 
 ---
