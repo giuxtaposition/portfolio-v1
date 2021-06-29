@@ -1,14 +1,17 @@
 <p align="left">
    <img src="./.github/images/logo.png" />
 </p>
+
 # portfolio v1
+
 ---
+
 <p align="center">
    <img src="./.github/images/homepage.png" width="500"/>
 </p>
 
 <p align="center">
-   <a href="https://giuxtaposition.com/portfolio-v1">Go check it out 🎉</a>
+   <a href="https://giuxtaposition.github.io/portfolio-v1">Go check it out 🎉</a>
 </p>
 
 ---
