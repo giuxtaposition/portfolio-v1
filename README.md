@@ -16,10 +16,15 @@
 # :pushpin: Table of Contents
 
 - [:pushpin: Table of Contents](#pushpin-table-of-contents)
+  - [Backend](#backend)
   - [Running Locally](#running-locally)
   - [Built With](#built-with)
   - [License](#license)
   - [Contact](#contact)
+
+## Backend
+
+[Portfolio Backend with nodemailer module for sending emails](https://github.com/giuxtaposition/portfolio-server-v1)
 
 ## Running Locally
 
